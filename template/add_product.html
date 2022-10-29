@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add product</title>
+</head>
+<body>
+    <form method="POST" enctype="multipart/form-data">
+         {% csrf_token%}
+        <input type="text" placeholder="name" name="name"><br>
+        <input type="text" placeholder="price" name="price"><br>
+        <input type="text" placeholder="desc" name="desc"><br>
+        <input type="file" placeholder="Image" name="image" value="choose file"><br>
+        <input type="radio" name="offer" id="offer">
+        <label for="offer">offer</label><br>
+        <input type="submit" value="ADD">
+    </form>
+</body>
+</html>
