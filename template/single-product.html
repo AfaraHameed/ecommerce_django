@@ -115,8 +115,8 @@ https://templatemo.com/tm-571-hexashop
             <div class="row">
                 <div class="col-lg-8">
                 <div class="left-images">
-                    <img src="{{product.image}}" alt="">
-                    <img src="{{product.image}}" alt="">
+                    <img src="{{product.image.url}}" alt="">
+                    <img src="{{product.image.url}}" alt="">
                 </div>
             </div>
             <div class="col-lg-4">
@@ -131,6 +131,7 @@ https://templatemo.com/tm-571-hexashop
                         <li><i class="fa fa-star"></i></li>
                     </ul>
                     <span>{{product.desc}}</span>
+                     <span><a href="{% url 'demo_app:update' product.id %}">update</a></span>
                     <div class="quote">
                         <i class="fa fa-quote-left"></i><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiuski smod.</p>
                     </div>

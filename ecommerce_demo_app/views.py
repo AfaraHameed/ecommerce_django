@@ -1,6 +1,8 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import ModeForm
 from . models import products
+from django import forms
 # Create your views here.
 def demo(request):
     product = products.objects.all()
@@ -29,5 +31,12 @@ def add_product(request):
         p.save()
         print("product added")
     return  render(request,'add_product.html')
+def update(request,product_id):
+    obj = products.objects.get(id=product_id)
+    form = ModeForm(request.POST or None,request.FILES,instance=obj)
+    if form.is_valid():
+        form.save()
+        return  redirect('/')
+    return render(request,'edit.html')
 
 
