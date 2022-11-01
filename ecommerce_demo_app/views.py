@@ -37,6 +37,12 @@ def update(request,product_id):
     if form.is_valid():
         form.save()
         return  redirect('/')
-    return render(request,'edit.html')
+    return render(request,'edit.html',{'obj':obj,'form':form})
+def delete(request,product_id):
+    if request.method=='POST':
+        obj = products.objects.get(id = product_id)
+        obj.delete()
+        return redirect('/')
+    return render(request,'delete.html')
 
 
